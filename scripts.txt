@@ -1,0 +1,1 @@
+cd env/scripts && activate && cd .. && cd .. && python run.py 

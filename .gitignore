@@ -1,0 +1,12 @@
+resources/__pycache__/Ssd.cpython-36.pyc
+resources/__pycache__/Ram.cpython-36.pyc
+resources/__pycache__/PowerSupply.cpython-36.pyc
+resources/__pycache__/Monitor.cpython-36.pyc
+resources/__pycache__/Hello.cpython-36.pyc
+resources/__pycache__/Harddisk.cpython-36.pyc
+resources/__pycache__/Gpu.cpython-36.pyc
+resources/__pycache__/Cpu.cpython-36.pyc
+resources/__pycache__/Comment.cpython-36.pyc
+resources/__pycache__/Category.cpython-36.pyc
+env/
+__pycache__/
