@@ -18,5 +18,5 @@ def main():
     assert 10 == minus(20,10)
     assert 5 == divi(10,2)
     assert 28 == add(23,5)
-  
+    assert 30 == add(25,5)
 main()
