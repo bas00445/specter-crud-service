@@ -33,6 +33,6 @@ class HarddiskResource(Resource):
                       SET "Brand" = "%s", "Capacity" = "%s", "Device_Size" = "%s", 
                           "RW_Speed" = "%s", "Technology" = "%s", Price = "%s", 
                           "CartURL" = "%s", "ImgURL" = "%s" 
-                      WHERE "Title" = "%s""""
+                      WHERE "Title" = "%s"; """
         self.cursor.execute(command, (data['Brand'], data['Brand']))
         data = self.cursor.fetchall()
