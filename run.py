@@ -44,7 +44,7 @@ def returndata():
         {
             "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
             "Price": 1890.23424,
-            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Title": "POWERSUPPLYAEROCOOL 650W AE (80+)",
             "Standard": "80+",
             "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
             "Max_Power": 650.234,
@@ -415,11 +415,17 @@ def getdata():
 
 @app.route('/pushdata', methods=['POST'])
 def pushdata():
-    req_data = request.form.get('price')
-    req_data2 = request.form.get('standard')
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    maxpower = request.form.get('maxpower')
+    standard = request.form.get('standard')
+    price = request.form.get('price')
+    cart = request.form.get('cart')
+    image = request.form.get('image')
     
+    final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
     
-    return req_data
+    return json.dumps(final)
 
 @app.route('/powersupplies')
 def powersupply():
