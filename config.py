@@ -7,7 +7,7 @@ SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 # For production use
-SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+#SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 # For development use
-# SQLALCHEMY_DATABASE_URI = 'postgres://nfxddaslfohcxn:430f8902fdb0.......'
+SQLALCHEMY_DATABASE_URI = 'postgres://nfxddaslfohcxn:430f8902fdb00d28c1a122b61a73761aaf2d6eaa87103d7c3e5400b9994c128b@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d2r4bdi1dne77i'

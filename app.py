@@ -9,7 +9,7 @@ from resources.Ram import RamResource
 from resources.Ssd import SsdResource
 from resources.Mainboard import MainboardResource
 
-api_bp = Blueprint('resources', __name__)
+api_bp = Blueprint('api', __name__)
 api = Api(api_bp)
 
 # Routes

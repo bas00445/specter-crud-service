@@ -1,12 +1,429 @@
 from flask import Flask
+from flask import render_template
+import requests
+import json
+from flask import jsonify
+import simplejson as json
+
+
 import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 
+
+
 @app.route('/')
 def index():
   return 'Specter CRUD Service'
+
+@app.route('/test')
+def test():
+  return 'testssfsf'
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/returndata')
+def returndata():
+    data = {
+    "status": "success",
+    "kuay": {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.34534,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+            }
+   ,
+    "data": [
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890.23424,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650.234,
+            "Brand": "AEROCOOL"
+        },
+        {
+            "ImgURL": "htasdadadtps://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
+            "Price": 1890,
+            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Standard": "80+",
+            "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
+            "Max_Power": 650,
+            "Brand": "AEROCOOL"
+        },
+        ]
+    }
+    return json.dumps(data)
+
+@app.route('/getdata')
+def getdata():
+    url = 'http://localhost:8070/returndata'
+    response = requests.get(url)
+    datas= response.json()  
+    finaldata = json.dumps(datas)
+    return render_template('powersupply.html',names=datas)
+
+
+
+@app.route('/powersupplies')
+def powersupply():
+    
+    return render_template('powersupply.html')
+
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    test = "fsdfsfs"
+    return render_template('hello.html', names=test)
 
 def create_app(config_filename):
     app.config.from_object(config_filename)
