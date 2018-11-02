@@ -4,6 +4,7 @@ import requests
 import json
 from flask import jsonify
 import simplejson as json
+from flask import request
 
 
 import os
@@ -412,11 +413,16 @@ def getdata():
     finaldata = json.dumps(datas)
     return render_template('powersupply.html',names=datas)
 
-
+@app.route('/pushdata', methods=['POST'])
+def pushdata():
+    req_data = request.form.get('price')
+    req_data2 = request.form.get('standard')
+    
+    
+    return req_data
 
 @app.route('/powersupplies')
 def powersupply():
-    
     return render_template('powersupply.html')
 
 @app.route('/hello/')
