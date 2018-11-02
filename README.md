@@ -1,1 +1,1 @@
-# specter-crud-service by first
+# specter-crud-service
