@@ -44,9 +44,14 @@
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Price</th>
 		        <th>Title</th>
-		        <th>Standard</th>
+		        <th>Brand</th>
+						<th>Max_Power</th>
+						<th>Standard</th>
+						<th>Price</th>
+						<th>CartURL</th>
+						<th>ImgURL</th>
+
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -54,8 +59,12 @@
 		    	
 			      <tr>
 			        <td class="c1">{{item.Title}}</td>
-			        <td class="c2"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder={{item.Price}}></td>
-			        <td class="c3"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
+			        <td class="c2"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder={{item.Brand}}></td>
+							<td class="c3"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Max_Power}}></td>
+							<td class="c4"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
+							<td class="c5"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
+							<td class="c6"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
+							<td class="c7"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
 			   		<td class="c5"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button><td>
 			      </tr>
 			     </form>
