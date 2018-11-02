@@ -4,6 +4,7 @@ import requests
 import json
 from flask import jsonify
 import simplejson as json
+from flask import request
 
 
 import os
@@ -43,7 +44,7 @@ def returndata():
         {
             "ImgURL": "https://www.jib.co.th/img_master/product/original/20180106132941_4.jpg",
             "Price": 1890.23424,
-            "Title": "POWER SUPPLY AEROCOOL 650W AE (80+)",
+            "Title": "POWERSUPPLYAEROCOOL 650W AE (80+)",
             "Standard": "80+",
             "CartURL": "https://www.jib.co.th/web/index.php/cart/add/27624",
             "Max_Power": 650.234,
@@ -412,11 +413,22 @@ def getdata():
     finaldata = json.dumps(datas)
     return render_template('powersupply.html',names=datas)
 
-
+@app.route('/pushdata', methods=['POST'])
+def pushdata():
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    maxpower = request.form.get('maxpower')
+    standard = request.form.get('standard')
+    price = request.form.get('price')
+    cart = request.form.get('cart')
+    image = request.form.get('image')
+    
+    final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
+    
+    return json.dumps(final)
 
 @app.route('/powersupplies')
 def powersupply():
-    
     return render_template('powersupply.html')
 
 @app.route('/hello/')

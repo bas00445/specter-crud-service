@@ -39,8 +39,7 @@
 	  </div>
 	 <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 	</form> -->
-    <div class="container">
-    	<div class="container">         
+            
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
@@ -54,26 +53,31 @@
 
 		      </tr>
 		    </thead>
+
 		    <tbody>
 		    	{% for item in names.data %}
-		    	
+		    	<form action="/pushdata" method="POST">
+			      <!-- <input type="hidden" name="title" class="form-control" value={{item.Title}} id="exampleFormControlInput1"> -->
+			      <input type="hidden" name="title" class="form-control" id="exampleFormControlInput1" value=
+			           "{{item.Title}}">
 			      <tr>
-			        <td class="c1">{{item.Title}}</td>
-			        <td class="c2"><input type="text" class="form-control" id="exampleFormControlInput1" placeholder={{item.Brand}}></td>
-							<td class="c3"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Max_Power}}></td>
-							<td class="c4"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
-							<td class="c5"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
-							<td class="c6"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
-							<td class="c7"><input type="text" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
-			   		<td class="c5"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button><td>
+			           <td class="c1">{{item.Title}}</td>
+			           
+			           <td class="c2"><input type="text" name="brand" class="form-control" id="exampleFormControlInput1" placeholder={{item.Brand}}></td>
+			       <td class="c3"><input type="text" name="maxpower" class="form-control" id="exampleFormControlInput2" placeholder={{item.Max_Power}}></td>
+			       <td class="c4"><input type="text" name="standard" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
+			       <td class="c5"><input type="text" name="price" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
+			       <td class="c6"><input type="text" name="cart" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
+			       <td class="c7"><input type="text" name="image" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
+			        <td class="c8"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button></td>
 			      </tr>
+
 			     </form>
 		    	{% endfor %}
 		      
 		    </tbody>
 		  </table>
-		</div>
-	</div>
+		
 
 
     <!-- Optional JavaScript -->
