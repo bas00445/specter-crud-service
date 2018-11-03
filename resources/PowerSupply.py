@@ -22,9 +22,10 @@ class PowerSupplyResource(Resource):
         return {'status': 'success', 'data': powerSupplies}, 200
     
         
-
+    '''
     def get(self):
         command = """ select * from public."PowerSupply" """
         self.cursor.execute(command)
         data = self.cursor.fetchall()
         return {'status': 'success', 'data': json.dumps(data)}, 200
+    '''

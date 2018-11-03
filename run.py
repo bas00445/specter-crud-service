@@ -407,7 +407,7 @@ def returndata():
 
 @app.route('/getdata')
 def getdata():
-    url = 'http://localhost:8070/returndata'
+    url = 'http://localhost:8070/api/powersupply'
     response = requests.get(url)
     datas= response.json()  
     finaldata = json.dumps(datas)
