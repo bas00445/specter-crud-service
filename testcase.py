@@ -64,7 +64,7 @@ os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options = options,executable_path=chromedriver)
 driver.get("http://www.python.org")
 '''
-
+'''
 # Firefox
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     wait.until(expected.visibility_of_element_located((By.CSS_SELECTOR, '#ires a'))).click()
     print(driver.page_source)
     driver.quit()
-
+'''
 
 
 
