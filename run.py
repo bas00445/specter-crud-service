@@ -85,14 +85,8 @@ def pushdata():
     command = """ 
                 UPDATE public."PowerSupply"
                 SET "Brand" = %s, "Max_Power" = %s, "Standard" = %s, "Price" = %s, "CartURL" = %s, "ImgURL" = %s
-                WHERE "Title" = %s
+                WHERE "Title" = %s ;
               """
-    print(final)
-    print(final['Price'])
-    print(type(final['Price']))
-    print(final['Max_Power'])
-    print(type(final['Max_Power']))
-
     cur.execute(command,(final['Brand'],
                         int(final['Max_Power']),
                         final['Standard'], 
@@ -116,6 +110,26 @@ def pushdata2():
     image = request.form.get('image')
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
+
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                UPDATE public."Harddisk"
+                SET "Brand" = %s, "Capacity" = %s, "RW_Speed" = %s, "Device_Size" = %s, "Technology" = %s, "Price" = %s, "CartURL" = %s, "ImgURL" = %s
+                WHERE "Title" = %s ;
+              """
+    cur.execute(command,(final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+    conn.commit()
+    cur.close()
+    conn.close()
     return json.dumps(final)
   
 @app.route('/addpower')
@@ -137,6 +151,25 @@ def addhardsubmit():
     image = request.form.get('image')
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
+
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                INSERT INTO public."Harddisk" ("Title", "Brand", "Capacity", "RW_Speed", "Device_Size", "Technology", "Price", "CartURL", "ImgURL")
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+              """
+    cur.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+    conn.commit()
+    cur.close()
+    conn.close()
     return json.dumps(final)  
 
 @app.route('/addpowersubmit', methods=['POST'])
@@ -149,16 +182,57 @@ def addpowersubmit():
     cart = request.form.get('cart')
     image = request.form.get('image')
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
+
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                INSERT INTO public."PowerSupply" ("Title", "Brand", "Max_Power", "Standard", "Price", "CartURL", "ImgURL")
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+              """
+    cur.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+    conn.commit()
+    cur.close()
+    conn.close()
     return json.dumps(final)
 
 @app.route('/deletepower', methods=['POST'])
 def deletepower():
     title = request.form.get('delete_title')
+
+    print(title)
+    print(type(title))
+
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                DELETE FROM public."PowerSupply" 
+                WHERE "Title" = '%s' ;
+              """ % title
+    cur.execute(command)
+    conn.commit()
+    cur.close()
+    conn.close()
     return title
   
 @app.route('/deletehard', methods=['POST'])
 def deletehard():
     title = request.form.get('delete_title')
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                DELETE FROM public."Harddisk" 
+                WHERE "Title" = '%s' ;
+              """ % title
+    cur.execute(command)
+    conn.commit()
+    cur.close()
+    conn.close()
     return title
 
 @app.route('/powersupplies')
