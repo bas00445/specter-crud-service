@@ -8,5 +8,4 @@ flask_marshmallow==0.8.0
 marshmallow-sqlalchemy==0.13.2
 psycopg2==2.7.3.2
 requests==2.20.0
-simplejason==3.16.0
 selenium==3.141.0
