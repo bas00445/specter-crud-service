@@ -11,11 +11,6 @@ powerSupplies_schema = PowerSupplySchema(many=True)
 powerSupply_schema = PowerSupplySchema()
 
 class PowerSupplyResource(Resource):
-    def __init__(self):
-        pass
-        #self.conn = crud_database_connection
-        #self.cursor = self.conn.cursor()
-    
     def get(self):
         powerSupplies = PowerSupply.query.all()
         powerSupplies = powerSupplies_schema.dump(powerSupplies).data
@@ -23,6 +18,10 @@ class PowerSupplyResource(Resource):
     
         
     '''
+    def __init__(self):
+        #self.conn = crud_database_connection
+        #self.cursor = self.conn.cursor()
+
     def get(self):
         command = """ select * from public."PowerSupply" """
         self.cursor.execute(command)
