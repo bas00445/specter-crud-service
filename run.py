@@ -1,17 +1,14 @@
 from flask import Flask
 from flask import render_template
-import requests
-import json
 from flask import jsonify
-import simplejson as json
 from flask import request
 
-
+import simplejson as json
+import requests
 import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-
 
 
 @app.route('/')
