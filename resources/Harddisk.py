@@ -18,8 +18,15 @@ class HarddiskResource(Resource):
         return {'status': 'success', 'data': harddisks}, 200
 
     def put(self):
-        harddisks = Harddisk.query.filter_by(Title = 'title1').first()
+        harddisks = Harddisk.query.filter_by(Title = "title1").all()
         harddisks = harddisks_schema.dump(harddisks).data
+        return {'status': 'success', 'data': harddisks}, 200
+
+    def delete(self):
+        harddisks = Harddisk.query.filter_by(Title = "title1").all()
+        print(type(Harddisk))
+        Harddisk.delete(harddisks)
+        Harddisk.commit()
         return {'status': 'success', 'data': harddisks}, 200
     '''
     def __init__(self):
