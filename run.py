@@ -10,6 +10,12 @@ import requests
 
 import os
 
+from resources.PowerSupply import PowerSupplyResource
+from resources.Harddisk import HarddiskResource
+
+powerSupply = PowerSupplyResource()
+harddisk = HarddiskResource()
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 
@@ -55,19 +61,13 @@ def returndata():
 
 @app.route('/getdata')
 def getdata():
-    url = 'http://localhost:8070/api/powersupply'
-    response = requests.get(url)
-    datas= response.json()  
-    finaldata = json.dumps(datas)
-    return render_template('powersupply.html',names=datas)
+    result = powerSupply.get()[0]
+    return render_template('powersupply.html',names=result)
 
 @app.route('/getdata2')
 def getdata2():
-    url = 'http://localhost:8070/api/harddisk'
-    response = requests.get(url)
-    datas= response.json()  
-    finaldata = json.dumps(datas)
-    return render_template('Harddisk.html',names=datas)
+    result = harddisk.get()[0]
+    return render_template('Harddisk.html',names=result)
 
 @app.route('/pushdata', methods=['POST'])
 def pushdata():
