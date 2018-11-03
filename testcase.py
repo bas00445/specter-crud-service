@@ -32,6 +32,7 @@ driver = webdriver.Chrome("chromedriver")
 driver.get("http://www.python.org")
 '''
 
+# another option
 from selenium.webdriver import Chrome
 from selenium.webdriver.firefox.options import Options
 opts = Options()
