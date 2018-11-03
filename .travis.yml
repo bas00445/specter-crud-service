@@ -2,7 +2,7 @@ language: python
 python:
 - "3.6"
 
-before_install:
+install:
 - wget http://chromedriver.storage.googleapis.com/2.43/chromedriver_win32.zip
 - unzip chromedriver_win32.zip -d 
 /home/travis/virtualenv/python3.6.3/bin/
