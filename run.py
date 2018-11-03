@@ -80,23 +80,51 @@ def pushdata():
     image = request.form.get('image')
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
 
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
+
     command = """ 
                 UPDATE public."PowerSupply"
                 SET "Brand" = %s, "Max_Power" = %s, "Standard" = %s, "Price" = %s, "CartURL" = %s, "ImgURL" = %s
                 WHERE "Title" = %s ;
               """
-    cur.execute(command,(final['Brand'],
+    cur1.execute(command,(final['Brand'],
                         int(final['Max_Power']),
                         final['Standard'], 
                         int(final['Price']),
                         final['Cart'],
                         final['Image'],
                         final['Title']))
-    conn.commit()
-    cur.close()
-    conn.close()
+
+    cur2.execute(command,(final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+
+    cur3.execute(command,(final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return json.dumps(final)
 
 @app.route('/pushdata2', methods=['POST'])
@@ -111,14 +139,18 @@ def pushdata2():
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
 
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
     command = """ 
                 UPDATE public."Harddisk"
                 SET "Brand" = %s, "Capacity" = %s, "RW_Speed" = %s, "Device_Size" = %s, "Technology" = %s, "Price" = %s, "CartURL" = %s, "ImgURL" = %s
                 WHERE "Title" = %s ;
               """
-    cur.execute(command,(final['Brand'],
+    cur1.execute(command,(final['Brand'],
                         int(final['Capacity']),
                         int(final['RW_Speed']), 
                         3.5,
@@ -127,9 +159,36 @@ def pushdata2():
                         final['Cart'],
                         final['Image'],
                         final['Title']))
-    conn.commit()
-    cur.close()
-    conn.close()
+
+    cur2.execute(command,(final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+    
+    cur3.execute(command,(final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return json.dumps(final)
   
 @app.route('/addpower')
@@ -152,13 +211,17 @@ def addhardsubmit():
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
 
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
     command = """ 
                 INSERT INTO public."Harddisk" ("Title", "Brand", "Capacity", "RW_Speed", "Device_Size", "Technology", "Price", "CartURL", "ImgURL")
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
               """
-    cur.execute(command,(final['Title'],
+    cur1.execute(command,(final['Title'],
                         final['Brand'],
                         int(final['Capacity']),
                         int(final['RW_Speed']), 
@@ -167,9 +230,35 @@ def addhardsubmit():
                         int(final['Price']),
                         final['Cart'],
                         final['Image']))
-    conn.commit()
-    cur.close()
-    conn.close()
+
+    cur2.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+
+    cur3.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Capacity']),
+                        int(final['RW_Speed']), 
+                        3.5,
+                        final['Technology'],
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return json.dumps(final)  
 
 @app.route('/addpowersubmit', methods=['POST'])
@@ -183,56 +272,109 @@ def addpowersubmit():
     image = request.form.get('image')
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
 
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
     command = """ 
                 INSERT INTO public."PowerSupply" ("Title", "Brand", "Max_Power", "Standard", "Price", "CartURL", "ImgURL")
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
               """
-    cur.execute(command,(final['Title'],
+    cur1.execute(command,(final['Title'],
                         final['Brand'],
                         int(final['Max_Power']),
                         final['Standard'], 
                         int(final['Price']),
                         final['Cart'],
                         final['Image']))
-    conn.commit()
-    cur.close()
-    conn.close()
+
+    cur2.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+
+    cur3.execute(command,(final['Title'],
+                        final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image']))
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return json.dumps(final)
 
 @app.route('/deletepower', methods=['POST'])
 def deletepower():
     title = request.form.get('delete_title')
 
-    print(title)
-    print(type(title))
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
 
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
     command = """ 
                 DELETE FROM public."PowerSupply" 
                 WHERE "Title" = '%s' ;
               """ % title
-    cur.execute(command)
-    conn.commit()
-    cur.close()
-    conn.close()
+
+    cur1.execute(command)
+    cur2.execute(command)
+    cur3.execute(command)
+
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return title
   
 @app.route('/deletehard', methods=['POST'])
 def deletehard():
     title = request.form.get('delete_title')
-    conn = psycopg2.connect(CRUD_DATABASE_URI)
-    cur = conn.cursor()
+
+    conn1 = psycopg2.connect(CRUD_DATABASE_URI)
+    conn2 = psycopg2.connect(COMPONENT_DATABASE_URI)
+    conn3 = psycopg2.connect(RECOMMEND_DATABASE_URI)
+    cur1 = conn1.cursor()
+    cur2 = conn2.cursor()
+    cur3 = conn3.cursor()
+
     command = """ 
                 DELETE FROM public."Harddisk" 
                 WHERE "Title" = '%s' ;
               """ % title
-    cur.execute(command)
-    conn.commit()
-    cur.close()
-    conn.close()
+    cur1.execute(command)
+    cur2.execute(command)
+    cur3.execute(command)
+
+    conn1.commit()
+    conn2.commit()
+    conn3.commit()
+    cur1.close()
+    cur2.close()
+    cur3.close()
+    conn1.close()
+    conn2.close()
+    conn3.close()
     return title
 
 @app.route('/powersupplies')
