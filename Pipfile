@@ -19,6 +19,7 @@ flask-socketio = "*"
 eventlet = "*"
 gevent = "*"
 simplejson = "*"
+gunicorn = "*"
 
 [dev-packages]
 
