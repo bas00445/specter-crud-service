@@ -24,8 +24,19 @@ main()
 
 '''
 
+'''
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome("chromedriver")
 driver.get("http://www.python.org")
+'''
+
+from selenium.webdriver import Chrome
+from selenium.webdriver.firefox.options import Options
+opts = Options()
+opts.set_headless()
+browser = Chrome(options=opts)
+browser.get("http://www.python.org")
+
+
