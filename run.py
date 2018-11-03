@@ -413,6 +413,14 @@ def getdata():
     finaldata = json.dumps(datas)
     return render_template('powersupply.html',names=datas)
 
+@app.route('/getdata2')
+def getdata2():
+    url = 'http://localhost:8070/api/harddisk'
+    response = requests.get(url)
+    datas= response.json()  
+    finaldata = json.dumps(datas)
+    return render_template('Harddisk.html',names=datas)
+
 @app.route('/pushdata', methods=['POST'])
 def pushdata():
     title = request.form.get('title')
@@ -422,17 +430,61 @@ def pushdata():
     price = request.form.get('price')
     cart = request.form.get('cart')
     image = request.form.get('image')
-    
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
-    
+    return json.dumps(final)
+
+@app.route('/pushdata2', methods=['POST'])
+def pushdata2():
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    rw = request.form.get('rwspeed')
+    technology = request.form.get('technology')
+    price = request.form.get('price')
+    cart = request.form.get('cart')
+    image = request.form.get('image')
+    capacity = request.form.get('capacity')
+    final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
     return json.dumps(final)
   
-@app.route('/addpower', methods=['POST'])
+@app.route('/addpower')
 def addpower():
-    return "none"
+    return render_template('Add_Powersupply.html')
+
+@app.route('/addhard')
+def addhard():
+    return render_template('addharddisk.html')
+
+@app.route('/addhardsubmit', methods=['POST'])
+def addhardsubmit():
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    rw = request.form.get('rwspeed')
+    technology = request.form.get('technology')
+    price = request.form.get('price')
+    cart = request.form.get('cart')
+    image = request.form.get('image')
+    capacity = request.form.get('capacity')
+    final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
+    return json.dumps(final)  
+@app.route('/addpowersubmit', methods=['POST'])
+def addpowersubmit():
+    title = request.form.get('title')
+    brand = request.form.get('brand')
+    maxpower = request.form.get('maxpower')
+    standard = request.form.get('standard')
+    price = request.form.get('price')
+    cart = request.form.get('cart')
+    image = request.form.get('image')
+    final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
+    return json.dumps(final)
 
 @app.route('/deletepower', methods=['POST'])
 def deletepower():
+    title = request.form.get('delete_title')
+    return title
+  
+@app.route('/deletehard', methods=['POST'])
+def deletehard():
     title = request.form.get('delete_title')
     return title
 

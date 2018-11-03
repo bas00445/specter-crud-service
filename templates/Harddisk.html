@@ -10,91 +10,78 @@
 
     <title>Hello, world!</title>
     <style>
-     .jumbotron {
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border: 1px dashed deeppink;
-  }
+      .jumbotron {
+      position: absolute;
+      top: 50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      border: 1px dashed deeppink;
+    }
+    .title{
+      padding-top: 21px;
+    }
+    .butpad{
+      margin-top: 8px;
+    }
     </style>
   </head>
   <body>
-   <div class="cotainer">
-    {% for item in navigation %}
-         <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
-     {% endfor %}
-   </div>
-   <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
-    <div class="container">
-     <div class="container">
-    <h2>HARDDISK</h2>
-    <p>test by mt</p>            
+    <div class="title">
+      <div class="row">
+        <div class="col-md-2">
+          <h1>Harddisk</h1>
+        </div>
+        <div class="col-md-3">
+          <div class="butpad">
+            <a href="/addhard" class="btn btn-success" role="button" aria-pressed="true">Add Component</a>
+          </div>
+        </div>
+      </div>
+    </div> 
     <table class="table table-striped">
-      <thead>
+      <thead class="thead-dark">
         <tr>
-          <th>ImgURL</th>
-          <th>Technology</th>
           <th>Title</th>
+          <th>Technology</th>
           <th>Price</th>
           <th>Capacity</th>
           <th>RW_Speed</th>
           <th>CartURL</th>
+          <th>ImgURL</th>
           <th>Brand</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
+        {% for item in names.data %}
         <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
+        <form action="/pushdata2" method="POST">
+          <!-- <input type="hidden" name="title" class="form-control" value={{item.Title}} id="exampleFormControlInput1"> -->
+              <input type="hidden" name="title" class="form-control" id="exampleFormControlInput1" value=
+               "{{item.Title}}">          
+               <td class="c1">{{item.Title}}</td>
+               <td class="c2"><input type="text" name="technology" class="form-control" id="exampleFormControlInput1" placeholder={{item.Technology}}></td>
+             <td class="c3"><input type="text" name="price" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
+             <td class="c4"><input type="text" name="capacity" class="form-control" id="exampleFormControlInput2" placeholder={{item.Capacity}}></td>
+             <td class="c5"><input type="text" name="rwspeed" class="form-control" id="exampleFormControlInput2" placeholder={{item.RW_Speed}}></td>
+             <td class="c6"><input type="text" name="cart" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
+             <td class="c7"><input type="text" name="image" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
+             <td class="c9"><input type="text" name="brand" class="form-control" id="exampleFormControlInput2" placeholder={{item.Brand}}></td>
+              <td class="c8"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button></td>
+        </form>
+        <form action="/deletehard" method="POST">
+        <input type="hidden" name="delete_title" class="form-control" id="exampleInputEmail15" value=
+               "{{item.Title}}">      
+        <td class="c9"><button type="submit" class="btn btn-danger">Delete</button></td>
+      </form>
+      </tr>
 
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-          <td>john@example.com</td>
-        </tr>
+        {% endfor %}
+        
       </tbody>
     </table>
-  </div>
- </div>
+    
 
 
     <!-- Optional JavaScript -->

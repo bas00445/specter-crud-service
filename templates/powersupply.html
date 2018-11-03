@@ -17,69 +17,68 @@
 		  transform: translate(-50%,-50%);
 		  border: 1px dashed deeppink;
 		}
+		.title{
+			padding-top: 21px;
+		}
+		.butpad{
+			margin-top: 8px;
+		}
     </style>
   </head>
   <body>
-  	<!-- <div class="cotainer">
-  		
-    
-    	{% for item in names.data %}
-			<TR>
-			   <TD class="c2">{{item.Price}}</TD>
-			   <TD class="c3">{{item.Title}}</TD>
-			   <TD class="c4"><SPAN>{{item.Standard}}</SPAN></TD>
+  	<div class="title">
+  		<div class="row">
+  			<div class="col-md-2">
+  				<h1>PowerSupply</h1>
+  			</div>
+  			<div class="col-md-3">
+  				<div class="butpad">
+  					<a href="/addpower" class="btn btn-success" role="button" aria-pressed="true">Add Component</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div> 
+	  <table class="table table-striped">
+	    <thead class="thead-dark">
+	      <tr>
+	        <th>Title</th>
+	        <th>Brand</th>
+			<th>Max_Power</th>
+			<th>Standard</th>
+			<th>Price</th>
+			<th>CartURL</th>
+			<th>ImgURL</th>
+			<th></th>
+			<th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	{% for item in names.data %}
+	    	<tr>
+	    	<form action="/pushdata" method="POST">
+		      <!-- <input type="hidden" name="title" class="form-control" value={{item.Title}} id="exampleFormControlInput1"> -->
+		      		<input type="hidden" name="title" class="form-control" id="exampleFormControlInput1" value=
+		           "{{item.Title}}">		      
+		           <td class="c1">{{item.Title}}</td>
+		           <td class="c2"><input type="text" name="brand" class="form-control" id="exampleFormControlInput1" placeholder={{item.Brand}}></td>
+			       <td class="c3"><input type="text" name="maxpower" class="form-control" id="exampleFormControlInput2" placeholder={{item.Max_Power}}></td>
+			       <td class="c4"><input type="text" name="standard" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
+			       <td class="c5"><input type="text" name="price" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
+			       <td class="c6"><input type="text" name="cart" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
+			       <td class="c7"><input type="text" name="image" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
+			        <td class="c8"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button></td>
+		    </form>
+		    <form action="/deletepower" method="POST">
+				<input type="hidden" name="delete_title" class="form-control" id="exampleInputEmail15" value=
+		           "{{item.Title}}">		  
+				<td class="c9"><button type="submit" class="btn btn-danger">Delete</button></td>
+			</form>
+			</tr>
 
-			</TR>
-			{% endfor %}
-  	</div> -->
-  	<!-- <form>
-	  <div class="form-group">
-	    <label for="exampleFormControlInput1">Email address</label>
-	    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-	  </div>
-	 <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-	</form> -->
-            
-		  <table class="table table-striped">
-		    <thead>
-		      <tr>
-		        <th>Title</th>
-		        <th>Brand</th>
-				<th>Max_Power</th>
-				<th>Standard</th>
-				<th>Price</th>
-				<th>CartURL</th>
-				<th>ImgURL</th>
-		      </tr>
-		    </thead>
-
-		    <tbody>
-		    	{% for item in names.data %}
-		    	<tr>
-		    	<form action="/pushdata" method="POST">
-			      <!-- <input type="hidden" name="title" class="form-control" value={{item.Title}} id="exampleFormControlInput1"> -->
-			      		<input type="hidden" name="title" class="form-control" id="exampleFormControlInput1" value=
-			           "{{item.Title}}">		      
-			           <td class="c1">{{item.Title}}</td>
-			           <td class="c2"><input type="text" name="brand" class="form-control" id="exampleFormControlInput1" placeholder={{item.Brand}}></td>
-				       <td class="c3"><input type="text" name="maxpower" class="form-control" id="exampleFormControlInput2" placeholder={{item.Max_Power}}></td>
-				       <td class="c4"><input type="text" name="standard" class="form-control" id="exampleFormControlInput2" placeholder={{item.Standard}}></td>
-				       <td class="c5"><input type="text" name="price" class="form-control" id="exampleFormControlInput2" placeholder={{item.Price}}></td>
-				       <td class="c6"><input type="text" name="cart" class="form-control" id="exampleFormControlInput2" placeholder={{item.CartURL}}></td>
-				       <td class="c7"><input type="text" name="image" class="form-control" id="exampleFormControlInput2" placeholder={{item.ImgURL}}></td>
-				        <td class="c8"><button type="submit" class="btn btn-primary mb-2">Confirm identity</button></td>
-			    </form>
-			    <form action="/deletepower" method="POST">
-					<input type="hidden" name="delete_title" class="form-control" id="exampleInputEmail15" value=
-			           "{{item.Title}}">		  
-					<td class="c9"><button type="submit" class="btn btn-danger">Submit</button></td>
-				</form>
-				</tr>
-
-		    	{% endfor %}
-		      
-		    </tbody>
-		  </table>
+	    	{% endfor %}
+	      
+	    </tbody>
+	  </table>
 		
 
 
