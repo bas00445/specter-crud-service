@@ -1,4 +1,4 @@
-'''
+
 def add(x, y):
     return x + y
 
@@ -22,7 +22,6 @@ def main():
     assert 30 == add(25,5)
 main()
 
-'''
 
 '''
 from selenium import webdriver
@@ -32,6 +31,7 @@ driver = webdriver.Chrome("chromedriver")
 driver.get("http://www.python.org")
 '''
 
+'''
 # another option
 from selenium.webdriver import Chrome
 from selenium.webdriver.firefox.options import Options
@@ -39,5 +39,5 @@ opts = Options()
 opts.set_headless()
 browser = Chrome(options=opts)
 browser.get("http://www.python.org")
-
+'''
 
