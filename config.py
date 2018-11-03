@@ -11,7 +11,8 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 # For development use
 
-#SQLALCHEMY_DATABASE_URI = 'postgres://nfxddaslfohcxn:430f8902fdb00d28c1a122b61a73761aaf2d6eaa87103d7c3e5400b9994c128b@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d2r4bdi1dne77i'
+SQLALCHEMY_DATABASE_URI = 'postgres://nfxddaslfohcxn:430f8902fdb00d28c1a122b61a73761aaf2d6eaa87103d7c3e5400b9994c128b@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d2r4bdi1dne77i'
+
 CRUD_DATABASE_URI = 'postgres://nfxddaslfohcxn:430f8902fdb00d28c1a122b61a73761aaf2d6eaa87103d7c3e5400b9994c128b@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d2r4bdi1dne77i'
 
 COMPONENT_DATABASE_URI = 'postgres://wovnsfhsncbkic:3deced8a979dff8d76e6c55228870dea216b57532a070c1a4cf6a9d984bce0e3@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d882452k9qqs4f'
