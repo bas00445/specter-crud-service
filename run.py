@@ -5,8 +5,8 @@ import json
 from flask import jsonify
 import simplejson as json
 from flask import request
-
-
+import psycopg2
+from databases import CRUD_DATABASE_URI, COMPONENT_DATABASE_URI, RECOMMEND_DATABASE_URI
 import os
 
 app = Flask(__name__)
@@ -79,6 +79,30 @@ def pushdata():
     cart = request.form.get('cart')
     image = request.form.get('image')
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
+
+    conn = psycopg2.connect(CRUD_DATABASE_URI)
+    cur = conn.cursor()
+    command = """ 
+                UPDATE public."PowerSupply"
+                SET "Brand" = %s, "Max_Power" = %s, "Standard" = %s, "Price" = %s, "CartURL" = %s, "ImgURL" = %s
+                WHERE "Title" = %s
+              """
+    print(final)
+    print(final['Price'])
+    print(type(final['Price']))
+    print(final['Max_Power'])
+    print(type(final['Max_Power']))
+
+    cur.execute(command,(final['Brand'],
+                        int(final['Max_Power']),
+                        final['Standard'], 
+                        int(final['Price']),
+                        final['Cart'],
+                        final['Image'],
+                        final['Title']))
+    conn.commit()
+    cur.close()
+    conn.close()
     return json.dumps(final)
 
 @app.route('/pushdata2', methods=['POST'])
@@ -114,7 +138,7 @@ def addhardsubmit():
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
     return json.dumps(final)  
-    
+
 @app.route('/addpowersubmit', methods=['POST'])
 def addpowersubmit():
     title = request.form.get('title')

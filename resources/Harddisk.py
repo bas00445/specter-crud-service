@@ -16,11 +16,13 @@ class HarddiskResource(Resource):
         harddisks = Harddisk.query.all()
         harddisks = harddisks_schema.dump(harddisks).data
         return {'status': 'success', 'data': harddisks}, 200
-
-    def put(self, data):
-        harddisks = Harddisk.query.filter_by(Title = data["Title"]).all()
-        harddisks = harddisks_schema.dump(harddisks).data
-        return {'status': 'success', 'data': harddisks}, 200
+    '''
+    def put(self, todo_id):
+        # harddisks = Harddisk.query.filter_by(Title = data["Title"]).all()
+        # harddisks = harddisks_schema.dump(harddisks).data
+        # return {'status': 'success', 'data': harddisks}, 200
+        todos = request.form['data']
+        return {todo_id: "Dfs"}
 
     def delete(self):
         harddisks = Harddisk.query.filter_by(Title = "title1").all()
@@ -28,6 +30,7 @@ class HarddiskResource(Resource):
         Harddisk.delete(harddisks)
         Harddisk.commit()
         return {'status': 'success', 'data': harddisks}, 200
+    '''
     '''
     def __init__(self):
         #self.conn = crud_database_connection
