@@ -427,6 +427,11 @@ def pushdata():
     
     return json.dumps(final)
 
+@app.route('/deletepower', methods=['POST'])
+def deletepower():
+    title = request.form.get('delete_title')
+    return title
+
 @app.route('/powersupplies')
 def powersupply():
     return render_template('powersupply.html')
@@ -454,6 +459,3 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8070))
     # app.run(debug=True, host="0.0.0.0", threaded=True) # For debug
     app.run(host="0.0.0.0", port=port, threaded=True) # For debug
-  
-
-
