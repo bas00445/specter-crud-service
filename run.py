@@ -407,7 +407,7 @@ def returndata():
 
 @app.route('/getdata')
 def getdata():
-    url = 'http://localhost:8070/returndata'
+    url = 'http://localhost:8070/api/powersupply'
     response = requests.get(url)
     datas= response.json()  
     finaldata = json.dumps(datas)
@@ -426,6 +426,10 @@ def pushdata():
     final = {"Title":title,"Brand":brand, "Max_Power":maxpower, "Standard":standard, "Price":price, "Cart":cart, "Image":image}
     
     return json.dumps(final)
+  
+@app.route('/addpower', methods=['POST'])
+def addpower():
+    return "none"
 
 @app.route('/deletepower', methods=['POST'])
 def deletepower():
