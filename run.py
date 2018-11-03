@@ -114,6 +114,7 @@ def addhardsubmit():
     capacity = request.form.get('capacity')
     final = {"Title":title,"Brand":brand,"Capacity":capacity,"RW_Speed":rw, "Technology":technology, "Price":price, "Cart":cart, "Image":image}
     return json.dumps(final)  
+    
 @app.route('/addpowersubmit', methods=['POST'])
 def addpowersubmit():
     title = request.form.get('title')

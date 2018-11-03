@@ -17,8 +17,8 @@ class HarddiskResource(Resource):
         harddisks = harddisks_schema.dump(harddisks).data
         return {'status': 'success', 'data': harddisks}, 200
 
-    def put(self):
-        harddisks = Harddisk.query.filter_by(Title = "title1").all()
+    def put(self, data):
+        harddisks = Harddisk.query.filter_by(Title = data["Title"]).all()
         harddisks = harddisks_schema.dump(harddisks).data
         return {'status': 'success', 'data': harddisks}, 200
 
