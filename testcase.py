@@ -64,10 +64,11 @@ os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options = options,executable_path=chromedriver)
 driver.get("http://www.python.org")
 '''
-
+'''
 # Firefox
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Firefox()
 driver.get("http://www.python.org")
+'''
