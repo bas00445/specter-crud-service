@@ -1,7 +1,6 @@
 from flask import request
 from flask import jsonify
 from flask_restful import Resource
-#from databases import crud_database_connection
 import psycopg2
 import simplejson as json
 from decimal import Decimal
@@ -13,6 +12,16 @@ harddisk_schema = HarddiskSchema()
 
 
 class HarddiskResource(Resource):
+    def get(self):
+        harddisks = Harddisk.query.all()
+        harddisks = harddisks_schema.dump(harddisks).data
+        return {'status': 'success', 'data': harddisks}, 200
+
+    def put(self):
+        harddisks = Harddisk.query.filter_by(Title = 'title1').first()
+        harddisks = harddisks_schema.dump(harddisks).data
+        return {'status': 'success', 'data': harddisks}, 200
+    '''
     def __init__(self):
         #self.conn = crud_database_connection
         #self.cursor = self.conn.cursor()
@@ -51,6 +60,7 @@ class HarddiskResource(Resource):
         self.cursor.fetchall()
         self.conn.commit()
         return 'delete'
+    '''
 
 '''
         command = """ SELECT * FROM public."Harddisk" """

@@ -31,7 +31,7 @@ driver = webdriver.Chrome("chromedriver")
 driver.get("http://www.python.org")
 '''
 
-
+'''
 # another option
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
@@ -39,7 +39,7 @@ opts = Options()
 opts.set_headless()
 browser = Chrome(options=opts)
 browser.get("http://www.python.org")
-
+'''
 
 '''
 # another another option
@@ -64,3 +64,10 @@ os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options = options,executable_path=chromedriver)
 driver.get("http://www.python.org")
 '''
+
+# Firefox
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Firefox()
+driver.get("http://www.python.org")
