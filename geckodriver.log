@@ -13,3 +13,24 @@ hild 16044, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/sr
 [GPU 6952, Ch
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1541256860310	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.tcllknwapmNQ"
+*** You are running in headless mode.
+1541256862909	Marionette	INFO	Listening on port 60931
+1541256863046	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541257156064	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.eYYeA8OgbOQO"
+*** You are running in headless mode.
+1541257159174	Marionette	INFO	Listening on port 61139
+1541257159286	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541257272319	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.kAKIcXKDtkO6"
+1541257276920	Marionette	INFO	Listening on port 61209
+1541257277281	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 12104, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12104, Chro[Child 9072, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9072,[Parent 5456, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1541257282052	Marionette	INFO	Stopped listening on port 61209
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 5940, Ch
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
