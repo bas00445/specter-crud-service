@@ -2,10 +2,12 @@ language: python
 python:
 - "3.6"
 
-install:  
+before_install:  
    - wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckodriver-v0.23.0-linux64.tar.gz
    - mkdir geckodriver && tar zxvf geckodriver-v0.23.0-linux64.tar.gz -C geckodriver 
    - export PATH=$PATH:$PWD/geckodriver 
+
+install: "pip install -r requirements.txt"
 
 script:
 - python testcase.py
