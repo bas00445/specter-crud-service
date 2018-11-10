@@ -65,7 +65,7 @@ driver = webdriver.Chrome(chrome_options = options,executable_path=chromedriver)
 driver.get("http://www.python.org")
 '''
 
-'''
+
 # Firefox
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
@@ -76,9 +76,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 options = Options()
 options.add_argument('-headless')
-driver = Firefox(executable_path='geckodriver', firefox_options=options)
-print("in")
-#wait = WebDriverWait(driver, timeout=10)
+driver = Firefox(firefox_options=options)
+wait = WebDriverWait(driver, timeout=10)
 driver.get('http://www.google.com')
 
 
@@ -86,7 +85,7 @@ wait.until(expected.visibility_of_element_located((By.NAME, 'q'))).send_keys('he
 wait.until(expected.visibility_of_element_located((By.CSS_SELECTOR, '#ires a'))).click()
 print(driver.page_source)
 driver.quit()
-'''
+
 
 '''
 # Firefox v.2
@@ -97,16 +96,16 @@ driver = webdriver.Firefox(executable_path='geckodriver.exe')
 driver.get("http://www.python.org")
 '''
 
-
+'''
 # Firefox v.3
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
-#options = Options()
-#options.add_argument('-headless')
+options = Options()
+options.add_argument('-headless')
 firefox = Firefox()
 firefox.get('http://www.google.com')
-
+'''
 
 
 
