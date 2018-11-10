@@ -77,7 +77,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 options = Options()
 options.add_argument('-headless')
 driver = Firefox(executable_path='geckodriver', firefox_options=options)
-wait = WebDriverWait(driver, timeout=10)
+print("in")
+#wait = WebDriverWait(driver, timeout=10)
 driver.get('http://www.google.com')
 
 
@@ -87,14 +88,14 @@ print(driver.page_source)
 driver.quit()
 '''
 
-'''
+
 # Firefox v.2
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Firefox()
+driver = webdriver.Firefox(executable_path='geckodriver.exe')
 driver.get("http://www.python.org")
-'''
+
 
 
 

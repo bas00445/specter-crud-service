@@ -34,3 +34,70 @@ hild 16044, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/sr
 [GPU 5940, Ch
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1541826419424	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.J9Mq6HQNndHJ"
+*** You are running in headless mode.
+1541826422763	Marionette	INFO	Listening on port 64944
+1541826422841	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826468363	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.8eQpHUt6SUt7"
+1541826471896	Marionette	INFO	Listening on port 65007
+1541826472223	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 17288, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src[Chi/lchrome/common/ipc_channel_win.cc, line 346d
+ 6092, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6092, Ch[Parent 17288, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1541826476661	Marionette	INFO	Stopped listening on port 65007
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 1
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1541826538948	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.hrrcUcTU1IT3"
+*** You are running in headless mode.
+1541826541289	Marionette	INFO	Listening on port 65060
+1541826541724	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826567406	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.qCcobGMCZwXq"
+*** You are running in headless mode.
+1541826570600	Marionette	INFO	Listening on port 65104
+1541826570647	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826590564	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.s22PwBDQByYp"
+*** You are running in headless mode.
+1541826593772	Marionette	INFO	Listening on port 65141
+1541826593846	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826625709	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.U5HGSxOPZLd1"
+*** You are running in headless mode.
+1541826629577	Marionette	INFO	Listening on port 65184
+1541826629615	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826717334	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.lJw04IhkclpL"
+*** You are running in headless mode.
+1541826720833	Marionette	INFO	Listening on port 65244
+1541826721209	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541826853117	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.Puit6vZceQBi"
+1541826856797	Marionette	INFO	Listening on port 65321
+1541826856980	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 12204, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346[Child 21212, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+[Child 12204, Chrome_Ch[Parent 20584, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 21356, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 21356, Chrome_ChildThrea1541826860201	Marionette	INFO	Stopped listening on port 65321
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1541826899169	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.uH7I04A14jFm"
+1541826901664	Marionette	INFO	Listening on port 65376
+1541826901923	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 20724, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 19188, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[[ChildChild 20248, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2024[Parent 20724, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13112, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13112, Chro1541826907133	Marionette	INFO	Stopped listening on port 65376
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 12452
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
