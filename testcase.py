@@ -93,7 +93,7 @@ driver.quit()
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Firefox(executable_path='geckodriver.exe')
+driver = webdriver.Firefox(executable_path='C:\\Users\\Bright\\Desktop\\DC Spectre Home\\geckodriver.exe')
 driver.get("http://www.python.org")
 
 
