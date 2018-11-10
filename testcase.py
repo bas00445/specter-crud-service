@@ -97,6 +97,7 @@ driver = webdriver.Firefox(executable_path='geckodriver.exe')
 driver.get("http://www.python.org")
 '''
 
+
 # Firefox v.3
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
