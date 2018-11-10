@@ -155,3 +155,11 @@ ine 346
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1541841138017	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.stV1qUWx1qa7"
+*** You are running in headless mode.
+1541841140370	Marionette	INFO	Listening on port 51041
+1541841140754	Marionette	WARN	TLS certificate errors will be ignored for this session
+1541841170449	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\Bright\\AppData\\Local\\Temp\\rust_mozprofile.RIv2FQbZHPjx"
+*** You are running in headless mode.
+1541841173874	Marionette	INFO	Listening on port 51095
+1541841174284	Marionette	WARN	TLS certificate errors will be ignored for this session
